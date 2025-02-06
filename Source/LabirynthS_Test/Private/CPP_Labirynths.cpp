@@ -10,6 +10,13 @@ ACPP_Labirynths::ACPP_Labirynths()
 	PrimaryActorTick.bCanEverTick = true;
 
 }
+void ACPP_Labirynths::OnConstruction(const FTransform& Transform)
+{
+	Super::OnConstruction(Transform);
+
+
+}
+
 
 // Called when the game starts or when spawned
 void ACPP_Labirynths::BeginPlay()

@@ -5,8 +5,15 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Engine/StaticMesh.h"
+#include <Components/TextRenderComponent.h>
+#include "Components/InstancedStaticMeshComponent.h"
+#include "Components/SceneComponent.h"
 
 #include "CPP_Labirynths.generated.h"
+
+
+
+
 
 UCLASS()
 class LABIRYNTHS_TEST_API ACPP_Labirynths : public AActor
@@ -16,6 +23,54 @@ class LABIRYNTHS_TEST_API ACPP_Labirynths : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ACPP_Labirynths();
+
+	UPROPERTY()
+	USceneComponent* DefaultSceneRoot;
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "RenderText")
+	UTextRenderComponent* TR_X_Axis;
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "RenderText")
+	UTextRenderComponent* TR_Y_Axis;
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "RenderText")
+	UTextRenderComponent* TR_IndexOrder;
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Components")
+	UInstancedStaticMeshComponent* ISM;
+
+
+
+	
+	virtual void OnConstruction(const FTransform& Transform) override;
+
+	//Variables
+	UPROPERTY(EditAnywhere, Category = "Default")
+	bool ResetLabirynth = false;
+	UPROPERTY(EditAnywhere, Category = "Default")
+	int X = 0;
+	UPROPERTY(EditAnywhere, Category = "Default")
+	int Y = 0;
+	UPROPERTY(EditAnywhere, Category = "Default")
+	int CellSizeXY = 1000;
+	UPROPERTY(EditAnywhere, Category = "Default")
+	bool RndSeed = false;
+	UPROPERTY(EditAnywhere, Category = "Default")
+	int SeedRandom = 0;
+	UPROPERTY(EditAnywhere, Category = "Default")
+	int Seed = 0;
+	UPROPERTY(EditAnywhere, Category = "Default")
+	bool RemoveRndCells = false;
+	UPROPERTY(EditAnywhere, Category = "Default")
+	float Weight_RemoveCell = 0;
+	UPROPERTY(EditAnywhere, Category = "Default")
+	bool PointsPerSpline = false;
+	UPROPERTY(EditAnywhere, Category = "Default")
+	bool ShowInstanceGrid = false;
+
+	
+	
+
+
+
+
+
 
 protected:
 	// Called when the game starts or when spawned
