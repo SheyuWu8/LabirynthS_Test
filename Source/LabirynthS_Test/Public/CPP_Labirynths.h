@@ -29,7 +29,7 @@ enum class Enum_CellSpawnOptions : uint8
 	StandardAddDeadEndsAddRemoved UMETA(DisplayName = "Standard + DeadEnds + Removed"),
 };
 UENUM(BlueprintType)
-enum class WallSpawnOptions : uint8
+enum class Enum_WallSpawnOptions : uint8
 {
 	AllWalls UMETA(DisplayName = "AllWalls"),
 	OutterAndInnerWalls UMETA(DisplayName = "OutterAndInnerWalls"),
@@ -73,6 +73,14 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Default")
 	bool ResetLabirynth = false;
 	UPROPERTY(EditAnywhere, Category = "Default")
+	Enum_SetUpLabyrinth SetupLabyrinth;
+	UPROPERTY(EditAnywhere, Category = "Default")
+	Enum_CellSpawnOptions CellSpawmOptions;
+	UPROPERTY(EditAnywhere, Category = "Default")
+	Enum_WallSpawnOptions WallSpawnOptions;
+	UPROPERTY(EditAnywhere, Category = "Default")
+	Enum_ColumnsSpawnOptions ColumnsSpawnOptions;
+	UPROPERTY(EditAnywhere, Category = "Default")
 	int X = 0;
 	UPROPERTY(EditAnywhere, Category = "Default")
 	int Y = 0;
@@ -92,6 +100,7 @@ public:
 	bool PointsPerSpline = false;
 	UPROPERTY(EditAnywhere, Category = "Default")
 	bool ShowInstanceGrid = false;
+	
 
 	
 	
