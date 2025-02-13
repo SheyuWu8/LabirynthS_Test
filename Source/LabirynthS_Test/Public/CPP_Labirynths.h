@@ -12,9 +12,38 @@
 #include "CPP_Labirynths.generated.h"
 
 
+UENUM(BlueprintType)
+enum class Enum_SetUpLabyrinth : uint8
+{
+	StartAt00 UMETA(DisplayName = "StartAt00"),
+	StartAtRndAll UMETA(DisplayName = "StartAtRndAll"),
+	StartRndAtBorder UMETA(DisplayName = "StartRndAtBorder"),
+	StartRndInside UMETA(DisplayName = "StartRndInside"),
+	StartAtCenter UMETA(DisplayName = "StartAtCenter"),
+};
+UENUM(BlueprintType)
+enum class Enum_CellSpawnOptions : uint8
+{
+	AllCells UMETA(DisplayName = "AllCells"),
+	StandardAddDeadEnds UMETA(DisplayName = "Standard+DeadEnds"),
+	StandardAddDeadEndsAddRemoved UMETA(DisplayName = "Standard + DeadEnds + Removed"),
+};
+UENUM(BlueprintType)
+enum class WallSpawnOptions : uint8
+{
+	AllWalls UMETA(DisplayName = "AllWalls"),
+	OutterAndInnerWalls UMETA(DisplayName = "OutterAndInnerWalls"),
+};
 
-
-
+UENUM(BlueprintType)
+enum class Enum_ColumnsSpawnOptions : uint8
+{
+	KolumnsNone UMETA(DisplayName = "Kolumns None"),
+	KolumnsAll UMETA(DisplayName = "Kolumns All"),
+	KolumnsOutter UMETA(DisplayName = "Kolumns Outter"),
+	KolumnsInner UMETA(DisplayName = "Kolumns Inner"),
+	KolumnsOutterAndInner UMETA(DisplayName = "Kolumns Outter And Inner"),
+};
 UCLASS()
 class LABIRYNTHS_TEST_API ACPP_Labirynths : public AActor
 {
@@ -79,5 +108,10 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+
+
+
+
 
 };

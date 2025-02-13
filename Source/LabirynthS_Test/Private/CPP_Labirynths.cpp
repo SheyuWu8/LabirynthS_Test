@@ -23,6 +23,16 @@ void ACPP_Labirynths::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	if (X > 0 && Y > 0) 
+	{
+		if (RndSeed) {
+
+		}
+		else {
+			SeedRandom = rand();
+		}
+	}
+
 }
 
 // Called every frame
