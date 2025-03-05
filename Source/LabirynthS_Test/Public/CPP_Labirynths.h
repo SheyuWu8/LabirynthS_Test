@@ -8,6 +8,10 @@
 #include <Components/TextRenderComponent.h>
 #include "Components/InstancedStaticMeshComponent.h"
 #include "Components/SceneComponent.h"
+#include "Math/RandomStream.h"
+#include "UObject/ConstructorHelpers.h"
+#include "Materials/MaterialInterface.h"
+#include "Math/UnrealMath.h"
 
 #include "CPP_Labirynths.generated.h"
 
@@ -100,6 +104,8 @@ public:
 	bool PointsPerSpline = false;
 	UPROPERTY(EditAnywhere, Category = "Default")
 	bool ShowInstanceGrid = false;
+	UPROPERTY(EditDefaultsOnly, Category = "Default")
+	FRandomStream Stream;
 	
 
 	
