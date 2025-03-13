@@ -13,6 +13,7 @@
 #include "Materials/MaterialInterface.h"
 #include "Math/UnrealMath.h"
 
+
 #include "CPP_Labirynths.generated.h"
 
 
@@ -107,11 +108,12 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Default")
 	FRandomStream Stream;
 	
-
 	
-	
+	UFUNCTION(BlueprintCallable)
+	void FGetBorderStart(int& Out_Index);
 
-
+	UFUNCTION(BlueprintCallable)
+	void FGetInsideStart(int& Out_Index);
 
 
 
@@ -123,7 +125,6 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
 
 
 
