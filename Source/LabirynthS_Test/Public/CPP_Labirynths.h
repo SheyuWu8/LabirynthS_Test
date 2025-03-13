@@ -12,6 +12,7 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Materials/MaterialInterface.h"
 #include "Math/UnrealMath.h"
+#include "Math/Color.h"
 
 
 #include "CPP_Labirynths.generated.h"
@@ -114,8 +115,12 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void FGetInsideStart(int& Out_Index);
+	
+	UFUNCTION(BlueprintCallable)
+	void FChangeColor(int InInstanceIndex, FLinearColor In_Color);
 
-
+	UFUNCTION(BlueprintCallable)
+	void FFindNeighborIndex(int In_X, int In_Y, int In_Columns_Y, int In_Rows_X, int& Out_Index);
 
 
 protected:

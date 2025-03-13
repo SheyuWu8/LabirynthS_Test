@@ -169,22 +169,54 @@ void ACPP_Labirynths::FGetInsideStart(int& Out_Index)
 	vectorArrayTopLR.Add(FVector (L_CellSize_X * 1.0f, L_CellSize_Y * -1.0f, 0));
 	
 }*/
-TTuple <struct wall, struct wall, struct wall, struct wall >F4WallPoints(int CellSizeX, int CellSizeY)
+/*TTuple <struct wall, struct wall, struct wall, struct wall >F4WallPoints(int CellSizeX, int CellSizeY)
 {
+	float LCellSizeX = static_cast<float>(CellSizeX) * 0.5f;
+	float LCellSizeY = static_cast<float>(CellSizeY) * 0.5f;
+	struct wall 
+	{
+		FVector(LCellSizeX*-1.0f,LCellSizeY*-1.0f,0.0f)£»
+	};
+	
+		return; 
+}*/
+
+
+
+
+
+void ACPP_Labirynths::FChangeColor(int InInstanceIndex, FLinearColor In_Color)
+{
+	ISM->SetCustomDataValue(InInstanceIndex, 0, In_Color.R, false);
+	ISM->SetCustomDataValue(InInstanceIndex, 1, In_Color.G, false);
+	ISM->SetCustomDataValue(InInstanceIndex, 2, In_Color.B, false);
 
 }
 
-
-
-
-
-/*void ACPP_Labirynths::FChangeColor(int InInstanceIndex, Color)
+void ACPP_Labirynths::FFindNeighborIndex(int In_X, int In_Y, int In_Columns_Y, int In_Rows_X, int& Out_Index)
 {
-	ISM->SetCustomDataValue(InInstanceIndex, 0, Color[i].R, false);
-	ISM->SetCustomDataValue(InInstanceIndex, 1, Color[i].G, false);
-	ISM->SetCustomDataValue(InInstanceIndex, 2, Color[i].B, false);
+	int L_X;
+	int L_Y;
+	int L_Columns;
+	int L_Rows;
+	int L_Index;
 
-}*/
+	L_Y = In_Y;
+	L_X = In_X;
+	L_Columns = In_Columns_Y;
+	L_Rows = In_Rows_X;
+
+	L_Index = ((L_X * L_Columns) + L_Y);
+
+	if (L_X < 0 || L_Y < 0 || L_Y > L_Columns - 1 || L_X > L_Rows - 1)
+	{
+		Out_Index = -1;
+	}
+	else
+	{
+		Out_Index = L_Index;
+	}
+}
 
 // Called when the game starts or when spawned
 void ACPP_Labirynths::BeginPlay()
